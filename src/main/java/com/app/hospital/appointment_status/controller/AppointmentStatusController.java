@@ -1,4 +1,4 @@
-package com.app.hospital.appointmentStatus.controller;
+package com.app.hospital.appointment_status.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.hospital.appointmentStatus.exception.AppointmentStatusNotFoundException;
-import com.app.hospital.appointmentStatus.model.AppointmentStatus;
-import com.app.hospital.appointmentStatus.service.AppointmentStatusService;
+import com.app.hospital.appointment_status.exception.AppointmentStatusNotFoundException;
+import com.app.hospital.appointment_status.model.AppointmentStatus;
+import com.app.hospital.appointment_status.service.AppointmentStatusService;
 
 @RestController
 public class AppointmentStatusController {
@@ -27,7 +27,7 @@ public class AppointmentStatusController {
 	@Autowired
 	private AppointmentStatusService appointmentStatusService;
 
-	@RequestMapping(value = "/appointmentStatus", method = RequestMethod.POST)
+	@RequestMapping(value = "/save-appointment-status", method = RequestMethod.POST)
 	public ResponseEntity<Object> saveAppointmentStatus(@Valid @RequestBody AppointmentStatus appointmentStatus) {
 		LOG.info("AppointmentStatusController | saveAppointmentStatus() | invoked");
 		Object appointmentStatusInfo = null;
@@ -43,7 +43,7 @@ public class AppointmentStatusController {
 	}
 
 	// edit/update/modify
-	@RequestMapping(value = "/appointmentStatus/{appointmentStatusId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update-appointment-status/{appointmentStatusId}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateAppointmentStatus(@Valid @RequestBody AppointmentStatus appointmentStatus,
 			@PathVariable("appointmentStatusId") int appointmentStatusId) throws AppointmentStatusNotFoundException {
 		LOG.info("AppointmentStatusController | updateAppointmentStatus() | invoked with AppointmentStatusId = {}",
@@ -72,7 +72,7 @@ public class AppointmentStatusController {
 	}
 
 	// delete/remove
-	@RequestMapping(value = "/appointmentStatus/{appointmentStatusId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete-appointment-status/{appointmentStatusId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> deleteAppointmentStatus(@PathVariable("appointmentStatusId") int appointmentStatusId)
 			throws AppointmentStatusNotFoundException {
 		LOG.info("AppointmentStatusController | deleteAppointmentStatus() | invoked with AppointmentStatusId = {}",
@@ -99,7 +99,7 @@ public class AppointmentStatusController {
 	}
 
 	// fetchList
-	@RequestMapping(value = "/appointmentStatus", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-all-appointment-status", method = RequestMethod.GET)
 	public List<AppointmentStatus> fetchAllAppointmentStatus() {
 		LOG.info("AppointmentStatusController | fetchAllAppointmentStatus() | invoked");
 		List<AppointmentStatus> appointmentStatusList = new ArrayList<AppointmentStatus>();
@@ -115,7 +115,7 @@ public class AppointmentStatusController {
 	}
 
 	// get record by id
-	@RequestMapping(value = "/appointmentStatus/{appointmentStatusId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-appointment-status/{appointmentStatusId}", method = RequestMethod.GET)
 	public ResponseEntity<Object> fetchAppointmentStatusById(@PathVariable("appointmentStatusId") int appointmentStatusId)
 			throws AppointmentStatusNotFoundException {
 		LOG.info("AppointmentStatusController | fetchAppointmentStatusById() | invoked with AppointmentStatusId = {}",

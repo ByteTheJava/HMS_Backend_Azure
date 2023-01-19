@@ -1,4 +1,4 @@
-package com.app.hospital.appointmentType.controller;
+package com.app.hospital.appointment_type.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.hospital.appointmentType.exception.AppointmentTypeNotFoundException;
-import com.app.hospital.appointmentType.model.AppointmentType;
-import com.app.hospital.appointmentType.service.AppointmentTypeService;
+import com.app.hospital.appointment_type.exception.AppointmentTypeNotFoundException;
+import com.app.hospital.appointment_type.model.AppointmentType;
+import com.app.hospital.appointment_type.service.AppointmentTypeService;
 
 @RestController
 public class AppointmentTypeController {
@@ -27,7 +27,7 @@ public class AppointmentTypeController {
 	@Autowired
 	private AppointmentTypeService appointmentTypeService;
 
-	@RequestMapping(value = "/appointmentType", method = RequestMethod.POST)
+	@RequestMapping(value = "/save-appointment-type", method = RequestMethod.POST)
 	public ResponseEntity<Object> saveAppointmentType(@Valid @RequestBody AppointmentType appointmentType) {
 		LOG.info("AppointmentTypeController | saveAppointmentType() | invoked");
 		Object appointmentTypeInfo = null;
@@ -43,7 +43,7 @@ public class AppointmentTypeController {
 	}
 
 	// edit/update/modify
-	@RequestMapping(value = "/appointmentType/{appointmentTypeId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update-appointment-type/{appointmentTypeId}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateAppointmentType(@Valid @RequestBody AppointmentType appointmentType,
 			@PathVariable("appointmentTypeId") int appointmentTypeId) throws AppointmentTypeNotFoundException {
 		LOG.info("AppointmentTypeController | updateAppointmentType() | invoked with AppointmentTypeId = {}",
@@ -70,7 +70,7 @@ public class AppointmentTypeController {
 	}
 
 	// delete/remove
-	@RequestMapping(value = "/appointmentType/{appointmentTypeId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete-appointment-type/{appointmentTypeId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> deleteAppointmentType(@PathVariable("appointmentTypeId") int appointmentTypeId)
 			throws AppointmentTypeNotFoundException {
 		LOG.info("AppointmentTypeController | deleteAppointmentType() | invoked with AppointmentTypeId = {}",
@@ -96,7 +96,7 @@ public class AppointmentTypeController {
 	}
 
 	// fetchList
-	@RequestMapping(value = "/appointmentType", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-all-appointment-type", method = RequestMethod.GET)
 	public List<AppointmentType> fetchAllAppointmentType() {
 		LOG.info("AppointmentTypeController | fetchAllAppointmentType() | invoked");
 		List<AppointmentType> appointmentTypeList = new ArrayList<AppointmentType>();
@@ -112,7 +112,7 @@ public class AppointmentTypeController {
 	}
 
 	// get record by id
-	@RequestMapping(value = "/appointmentType/{appointmentTypeId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-appointment-type/{appointmentTypeId}", method = RequestMethod.GET)
 	public ResponseEntity<Object> fetchAppointmentTypeById(@PathVariable("appointmentTypeId") int appointmentTypeId)
 			throws AppointmentTypeNotFoundException {
 		LOG.info("AppointmentTypeController | fetchAppointmentTypeById() | invoked with AppointmentTypeId = {}",

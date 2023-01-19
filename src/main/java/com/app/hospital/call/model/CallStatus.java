@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "App_Call_Status")
 public class CallStatus {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "callStatusId", nullable = false)
 	private int callStatusId;
 

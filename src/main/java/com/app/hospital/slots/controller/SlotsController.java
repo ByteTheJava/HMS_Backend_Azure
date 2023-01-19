@@ -27,7 +27,7 @@ public class SlotsController {
 	@Autowired
 	private SlotsService slotService;
 
-	@RequestMapping(value = "/slots", method = RequestMethod.POST)
+	@RequestMapping(value = "/save-slots", method = RequestMethod.POST)
 	public ResponseEntity<Object> saveSlots(@Valid @RequestBody Slots slots) {
 		LOG.info("SlotsController | saveSlots() | invoked");
 		Object slotsInfo = null;
@@ -42,7 +42,7 @@ public class SlotsController {
 	}
 
 	// edit/update/modify
-	@RequestMapping(value = "/slots/{slotsId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update-slots/{slotsId}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateSlots(@Valid @RequestBody Slots slots, @PathVariable("slotsId") int slotsId)
 			throws SlotsNotFoundException {
 		LOG.info("SlotsController | updateSlots() | invoked with SlotsId = {}", slotsId);
@@ -65,7 +65,7 @@ public class SlotsController {
 	}
 
 	// delete/remove
-	@RequestMapping(value = "/slots/{slotsId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete-slots/{slotsId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> deleteSlots(@PathVariable("slotsId") int slotsId) throws SlotsNotFoundException {
 		LOG.info("SlotsController | deleteSlots() | invoked with SlotsId = {}", slotsId);
 		try {
@@ -86,7 +86,7 @@ public class SlotsController {
 	}
 
 	// fetchList
-	@RequestMapping(value = "/slots", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-all-slots", method = RequestMethod.GET)
 	public List<Slots> fetchAllSlots() {
 		LOG.info("SlotsController | fetchAllSlots() | invoked");
 		List<Slots> slotsList = new ArrayList<Slots>();
@@ -101,7 +101,7 @@ public class SlotsController {
 	}
 
 	// get record by id
-	@RequestMapping(value = "/slots/{slotsId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-slots/{slotsId}", method = RequestMethod.GET)
 	public ResponseEntity<Object> fetchSlotsById(@PathVariable("slotsId") int slotsId) throws SlotsNotFoundException {
 		LOG.info("SlotsController | fetchSlotsById() | invoked with SlotsId = {}", slotsId);
 		Object slotsInfo = null;

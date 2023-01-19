@@ -1,4 +1,4 @@
-package com.app.hospital.appointmentStatus.service;
+package com.app.hospital.appointment_status.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.app.hospital.appointmentStatus.exception.AppointmentStatusNotFoundException;
-import com.app.hospital.appointmentStatus.model.AppointmentStatus;
-import com.app.hospital.appointmentStatus.repository.AppointmentStatusRepository;
+import com.app.hospital.appointment_status.exception.AppointmentStatusNotFoundException;
+import com.app.hospital.appointment_status.model.AppointmentStatus;
+import com.app.hospital.appointment_status.repository.AppointmentStatusRepository;
 
 @Service
 public class AppointmentStatusServiceImpl implements AppointmentStatusService {

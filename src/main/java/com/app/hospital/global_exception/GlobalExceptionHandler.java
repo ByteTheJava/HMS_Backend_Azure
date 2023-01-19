@@ -1,4 +1,4 @@
-package com.app.hospital.globalException;
+package com.app.hospital.global_exception;
 
 import java.util.Date;
 
@@ -10,8 +10,8 @@ import org.springframework.web.context.request.WebRequest;
 
 import com.app.hospital.age.exception.AgeNotFoundException;
 import com.app.hospital.appointment.exception.AppointmentNotFoundException;
-import com.app.hospital.appointmentStatus.exception.AppointmentStatusNotFoundException;
-import com.app.hospital.appointmentType.exception.AppointmentTypeNotFoundException;
+import com.app.hospital.appointment_status.exception.AppointmentStatusNotFoundException;
+import com.app.hospital.appointment_type.exception.AppointmentTypeNotFoundException;
 import com.app.hospital.call.exception.CallStatusNotFoundException;
 import com.app.hospital.department.exception.DepartmentNotFoundException;
 import com.app.hospital.doctor.exception.DoctorNotFoundException;

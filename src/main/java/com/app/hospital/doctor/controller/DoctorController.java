@@ -27,7 +27,7 @@ public class DoctorController {
 	@Autowired
 	private DoctorService doctorService;
 
-	@RequestMapping(value = "/doctor", method = RequestMethod.POST)
+	@RequestMapping(value = "/save-doctor", method = RequestMethod.POST)
 	public ResponseEntity<Object> saveDoctor(@Valid @RequestBody Doctor doctor) {
 		LOG.info("DoctorController | saveDoctor() | invoked");
 		Object doctorInfo = null;
@@ -42,7 +42,7 @@ public class DoctorController {
 	}
 
 	// edit/update/modify
-	@RequestMapping(value = "/doctor/{doctorId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update-doctor/{doctorId}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateDoctor(@Valid @RequestBody Doctor doctor,
 			@PathVariable("doctorId") int doctorId) throws DoctorNotFoundException {
 		LOG.info("DoctorController | updateDoctor() | invoked with DoctorId = {}", doctorId);
@@ -65,7 +65,7 @@ public class DoctorController {
 	}
 
 	// delete/remove
-	@RequestMapping(value = "/doctor/{doctorId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete-doctor/{doctorId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> deleteDoctor(@PathVariable("doctorId") int doctorId) throws DoctorNotFoundException {
 		LOG.info("DoctorController | deleteDoctor() | invoked with doctorId = {}", doctorId);
 		try {
@@ -86,7 +86,7 @@ public class DoctorController {
 	}
 
 	// fetchList
-	@RequestMapping(value = "/doctor", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-all-doctor", method = RequestMethod.GET)
 	public List<Doctor> fetchAllDoctor() {
 		LOG.info("DoctorController | fetchAllDoctor() | invoked");
 		List<Doctor> doctorList = new ArrayList<Doctor>();
@@ -101,7 +101,7 @@ public class DoctorController {
 	}
 
 	// get record by id
-	@RequestMapping(value = "/doctor/{doctorId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-doctor/{doctorId}", method = RequestMethod.GET)
 	public ResponseEntity<Object> fetchDoctorById(@PathVariable("doctorId") int doctorId) throws DoctorNotFoundException {
 		LOG.info("DoctorController | fetchDoctorById() | invoked with DoctorId = {}", doctorId);
 		Object doctorInfo = null;

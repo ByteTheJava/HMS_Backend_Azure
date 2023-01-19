@@ -1,4 +1,4 @@
-package com.app.hospital.globalException;
+package com.app.hospital.global_exception;
 
 import java.util.Date;
 

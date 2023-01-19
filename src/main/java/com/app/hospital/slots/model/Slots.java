@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "App_Slots_Master")
 public class Slots {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "slotsId", nullable = false)
 	private int slotsId;
 

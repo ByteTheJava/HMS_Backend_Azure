@@ -1,9 +1,9 @@
-package com.app.hospital.appointmentStatus.service;
+package com.app.hospital.appointment_status.service;
 
 import java.util.List;
 
-import com.app.hospital.appointmentStatus.exception.AppointmentStatusNotFoundException;
-import com.app.hospital.appointmentStatus.model.AppointmentStatus;
+import com.app.hospital.appointment_status.exception.AppointmentStatusNotFoundException;
+import com.app.hospital.appointment_status.model.AppointmentStatus;
 
 public interface AppointmentStatusService {
 	Object saveAppointmentStatus(AppointmentStatus appointmentStatus);
