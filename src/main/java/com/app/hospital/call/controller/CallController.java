@@ -27,7 +27,7 @@ public class CallController {
 	@Autowired
 	private CallService callService;
 
-	@RequestMapping(value = "/callStatus", method = RequestMethod.POST)
+	@RequestMapping(value = "/save-call-status", method = RequestMethod.POST)
 	public ResponseEntity<Object> saveCallStatus(@Valid @RequestBody CallStatus callStatus) {
 		LOG.info("CallController | saveCallStatus() | invoked");
 		Object callStatusInfo = null;
@@ -42,7 +42,7 @@ public class CallController {
 	}
 
 	// edit/update/modify
-	@RequestMapping(value = "/callStatus/{callStatusId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update-call-status/{callStatusId}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateCallStatus(@Valid @RequestBody CallStatus callStatus,
 			@PathVariable("callStatusId") int callStatusId) throws CallStatusNotFoundException {
 		LOG.info("CallController | updateCallStatus() | invoked with CallStatusId = {}", callStatusId);
@@ -65,7 +65,7 @@ public class CallController {
 	}
 
 	// delete/remove
-	@RequestMapping(value = "/callStatus/{callStatusId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete-call-status/{callStatusId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> deleteCallStatus(@PathVariable("callStatusId") int callStatusId)
 			throws CallStatusNotFoundException {
 		LOG.info("CallController | deleteCallStatus() | invoked with callStatusId = {}", callStatusId);
@@ -87,7 +87,7 @@ public class CallController {
 	}
 
 	// fetchList
-	@RequestMapping(value = "/callStatus", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-all-call-status", method = RequestMethod.GET)
 	public List<CallStatus> fetchAllCallStatus() {
 		LOG.info("CallController | fetchAllCallStatus() | invoked");
 		List<CallStatus> callStatusList = new ArrayList<CallStatus>();
@@ -102,7 +102,7 @@ public class CallController {
 	}
 
 	// get record by id
-	@RequestMapping(value = "/callStatus/{callStatusId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-call-status/{callStatusId}", method = RequestMethod.GET)
 	public ResponseEntity<Object> fetchCallStatusById(@PathVariable("callStatusId") int callStatusId)
 			throws CallStatusNotFoundException {
 		LOG.info("CallController | fetchCallStatusById() | invoked with CallStatusId = {}", callStatusId);

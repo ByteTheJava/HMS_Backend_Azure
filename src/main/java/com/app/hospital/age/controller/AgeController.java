@@ -30,7 +30,7 @@ public class AgeController {
 	private AgeService ageService;
 
 	// Add/create/save
-	@RequestMapping(value = "/age", method = RequestMethod.POST)
+	@RequestMapping(value = "/save-age", method = RequestMethod.POST)
 	public ResponseEntity<Object> saveAge(@Valid @RequestBody Age age) {
 		LOG.info("AgeController | saveAge() | invoked");
 		Object ageInfo = null;
@@ -45,7 +45,7 @@ public class AgeController {
 	}
 
 	// edit/update/modify
-	@RequestMapping(value = "/age/{ageId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update-age/{ageId}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateAge(@Valid @RequestBody Age age, @PathVariable("ageId") int ageId)
 			throws AgeNotFoundException {
 		LOG.info("AgeController | updateAge() | invoked with AgeId = {}", ageId);
@@ -68,7 +68,7 @@ public class AgeController {
 	}
 
 	// delete/remove
-	@RequestMapping(value = "/age/{ageId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete-age/{ageId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> deleteAge(@PathVariable("ageId") int ageId) throws AgeNotFoundException {
 		LOG.info("AgeController | deleteAge() | invoked with AgeId = {}", ageId);
 		try {
@@ -89,7 +89,7 @@ public class AgeController {
 	}
 
 	// fetchList
-	@RequestMapping(value = "/age", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-all-age", method = RequestMethod.GET)
 	public List<Age> fetchAllAge() {
 		LOG.info("AgeController | fetchAllAge() | invoked");
 		List<Age> ageList = new ArrayList<Age>();
@@ -104,7 +104,7 @@ public class AgeController {
 	}
 
 	// get record by id
-	@RequestMapping(value = "/age/{ageId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-age/{ageId}", method = RequestMethod.GET)
 	public ResponseEntity<Object> fetchAgeById(@PathVariable("ageId") int ageId) throws AgeNotFoundException {
 		LOG.info("AgeController | fetchAgeById() | invoked with AgeId = {}", ageId);
 		Object ageInfo = null;

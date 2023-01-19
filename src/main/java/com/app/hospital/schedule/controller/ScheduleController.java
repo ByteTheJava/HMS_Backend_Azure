@@ -27,7 +27,7 @@ public class ScheduleController {
 	@Autowired
 	private ScheduleService scheduleService;
 
-	@RequestMapping(value = "/scheduleType", method = RequestMethod.POST)
+	@RequestMapping(value = "/save-schedule-type", method = RequestMethod.POST)
 	public ResponseEntity<Object> saveScheduleType(@Valid @RequestBody ScheduleType scheduleType) {
 		LOG.info("ScheduleController | saveScheduleType() | invoked");
 		Object scheduleTypeInfo = null;
@@ -42,7 +42,7 @@ public class ScheduleController {
 	}
 
 	// edit/update/modify
-	@RequestMapping(value = "/scheduleType/{scheduleTypeId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update-schedule-type/{scheduleTypeId}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateScheduleType(@Valid @RequestBody ScheduleType scheduleType,
 			@PathVariable("scheduleTypeId") int scheduleTypeId) throws ScheduleNotFoundException {
 		LOG.info("ScheduleController | updateScheduleType() | invoked with ScheduleTypeId = {}", scheduleTypeId);
@@ -66,7 +66,7 @@ public class ScheduleController {
 	}
 
 	// delete/remove
-	@RequestMapping(value = "/scheduleType/{scheduleTypeId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete-schedule-type/{scheduleTypeId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> deleteScheduleType(@PathVariable("scheduleTypeId") int scheduleTypeId)
 			throws ScheduleNotFoundException {
 		LOG.info("ScheduleController | deleteScheduleType() | invoked with ScheduleTypeId = {}", scheduleTypeId);
@@ -89,7 +89,7 @@ public class ScheduleController {
 	}
 
 	// fetchList
-	@RequestMapping(value = "/scheduleType", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-all-schedule-type", method = RequestMethod.GET)
 	public List<ScheduleType> fetchAllScheduleType() {
 		LOG.info("ScheduleController | fetchAllScheduleType() | invoked");
 		List<ScheduleType> scheduleTypeList = new ArrayList<ScheduleType>();
@@ -104,7 +104,7 @@ public class ScheduleController {
 	}
 
 	// get record by id
-	@RequestMapping(value = "/scheduleType/{scheduleTypeId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-schedule-type/{scheduleTypeId}", method = RequestMethod.GET)
 	public ResponseEntity<Object> fetchScheduleTypeById(@PathVariable("scheduleTypeId") int scheduleTypeId)
 			throws ScheduleNotFoundException {
 		LOG.info("ScheduleController | fetchScheduleTypeById() | invoked with ScheduleTypeId = {}", scheduleTypeId);

@@ -27,7 +27,7 @@ public class DepartmentController {
 	@Autowired
 	private DepartmentService departmentService;
 
-	@RequestMapping(value = "/department", method = RequestMethod.POST)
+	@RequestMapping(value = "/save-department", method = RequestMethod.POST)
 	public ResponseEntity<Object> saveDepartment(@Valid @RequestBody Department department) {
 		LOG.info("DepartmentController | saveDepartment() | invoked");
 		Object departmentInfo = null;
@@ -42,7 +42,7 @@ public class DepartmentController {
 	}
 
 	// edit/update/modify
-	@RequestMapping(value = "/department/{departmentId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update-department/{departmentId}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateDepartment(@Valid @RequestBody Department department,
 			@PathVariable("departmentId") int departmentId) throws DepartmentNotFoundException {
 		LOG.info("DepartmentController | updateDepartment() | invoked with DepartmentId = {}", departmentId);
@@ -65,7 +65,7 @@ public class DepartmentController {
 	}
 
 	// delete/remove
-	@RequestMapping(value = "/department/{departmentId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete-department/{departmentId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> deleteDepartment(@PathVariable("departmentId") int departmentId)
 			throws DepartmentNotFoundException {
 		LOG.info("DepartmentController | deleteDepartment() | invoked with DepartmentId = {}", departmentId);
@@ -87,7 +87,7 @@ public class DepartmentController {
 	}
 
 	// fetchList
-	@RequestMapping(value = "/department", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-all-department", method = RequestMethod.GET)
 	public List<Department> fetchAllDepartment() {
 		LOG.info("DepartmentController | fetchAllDepartment() | invoked");
 		List<Department> departmentList = new ArrayList<Department>();
@@ -102,7 +102,7 @@ public class DepartmentController {
 	}
 
 	// get record by id
-	@RequestMapping(value = "/department/{departmentId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-department/{departmentId}", method = RequestMethod.GET)
 	public ResponseEntity<Object> fetchDepartmentById(@PathVariable("departmentId") int departmentId)
 			throws DepartmentNotFoundException {
 		LOG.info("DepartmentController | fetchDepartmentById() | invoked with DepartmentId = {}", departmentId);

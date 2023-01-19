@@ -1,4 +1,4 @@
-package com.app.hospital.appointmentType.model;
+package com.app.hospital.appointment_type.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "App_Appointment_Type")
 public class AppointmentType {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "appointmentTypeId", nullable = false)
 	private int appointmentTypeId;
 

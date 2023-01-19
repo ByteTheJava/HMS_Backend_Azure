@@ -1,4 +1,4 @@
-package com.app.hospital.appointmentType.service;
+package com.app.hospital.appointment_type.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.app.hospital.appointmentType.exception.AppointmentTypeNotFoundException;
-import com.app.hospital.appointmentType.model.AppointmentType;
-import com.app.hospital.appointmentType.repository.AppointmentTypeRepository;
+import com.app.hospital.appointment_type.exception.AppointmentTypeNotFoundException;
+import com.app.hospital.appointment_type.model.AppointmentType;
+import com.app.hospital.appointment_type.repository.AppointmentTypeRepository;
 
 @Service
 public class AppointmentTypeServiceImpl implements AppointmentTypeService {

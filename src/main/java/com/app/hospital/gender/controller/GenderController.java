@@ -27,7 +27,7 @@ public class GenderController {
 	@Autowired
 	private GenderService genderService;
 
-	@RequestMapping(value = "/gender", method = RequestMethod.POST)
+	@RequestMapping(value = "/save-gender", method = RequestMethod.POST)
 	public ResponseEntity<Object> saveGender(@Valid @RequestBody Gender gender) {
 		LOG.info("GenderController | saveGender() | invoked");
 		Object genderInfo = null;
@@ -42,7 +42,7 @@ public class GenderController {
 	}
 
 	// edit/update/modify
-	@RequestMapping(value = "/gender/{genderId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update-gender/{genderId}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateGender(@Valid @RequestBody Gender gender, @PathVariable("genderId") int genderId)
 			throws GenderNotFoundException {
 		LOG.info("GenderController | updateGender() | invoked with GenderId = {}", genderId);
@@ -65,7 +65,7 @@ public class GenderController {
 	}
 
 	// delete/remove
-	@RequestMapping(value = "/gender/{genderId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete-gender/{genderId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> deleteGender(@PathVariable("genderId") int genderId) throws GenderNotFoundException {
 		LOG.info("GenderController | deleteGender() | invoked with GenderId = {}", genderId);
 		try {
@@ -86,7 +86,7 @@ public class GenderController {
 	}
 
 	// fetchList
-	@RequestMapping(value = "/gender", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-all-gender", method = RequestMethod.GET)
 	public List<Gender> fetchAllGender() {
 		LOG.info("GenderController | fetchAllGender() | invoked");
 		List<Gender> genderList = new ArrayList<Gender>();
@@ -101,7 +101,7 @@ public class GenderController {
 	}
 
 	// get record by id
-	@RequestMapping(value = "/gender/{genderId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-gender/{genderId}", method = RequestMethod.GET)
 	public ResponseEntity<Object> fetchGenderById(@PathVariable("genderId") int genderId) throws GenderNotFoundException {
 		LOG.info("GenderController | fetchGenderById() | invoked with GenderId = {}", genderId);
 		Object genderInfo = null;

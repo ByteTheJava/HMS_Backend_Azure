@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "App_Schedule_Type_Master")
 public class ScheduleType {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "scheduleTypeId", nullable = false)
 	private int scheduleTypeId;
 

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "App_Age_Master")
 public class Age {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ageId", nullable = false)
 	private int ageId;
 

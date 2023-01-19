@@ -1,4 +1,4 @@
-package com.app.hospital.appointmentType.exception;
+package com.app.hospital.appointment_type.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

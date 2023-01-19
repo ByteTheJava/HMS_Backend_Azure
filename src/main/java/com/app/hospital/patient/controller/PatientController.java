@@ -27,7 +27,7 @@ public class PatientController {
 	@Autowired
 	private PatientService patientService;
 
-	@RequestMapping(value = "/patient", method = RequestMethod.POST)
+	@RequestMapping(value = "/save-patient", method = RequestMethod.POST)
 	public ResponseEntity<Object> savePatient(@Valid @RequestBody Patient patient) {
 		LOG.info("PatientController | savePatient() | invoked");
 		Object patientInfo = null;
@@ -42,7 +42,7 @@ public class PatientController {
 	}
 
 	// edit/update/modify
-	@RequestMapping(value = "/patient/{patientId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update-patient/{patientId}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updatePatient(@Valid @RequestBody Patient patient, @PathVariable("patientId") int patientId)
 			throws PatientNotFoundException {
 		LOG.info("PatientController | updatePatient() | invoked with PatientId = {}", patientId);
@@ -65,7 +65,7 @@ public class PatientController {
 	}
 
 	// delete/remove
-	@RequestMapping(value = "/patient/{patientId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete-patient/{patientId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> deletePatient(@PathVariable("patientId") int patientId) throws PatientNotFoundException {
 		LOG.info("PatientController | deletePatient() | invoked with PatientId = {}", patientId);
 		try {
@@ -86,7 +86,7 @@ public class PatientController {
 	}
 
 	// fetchList
-	@RequestMapping(value = "/patient", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-all-patient", method = RequestMethod.GET)
 	public List<Patient> fetchAllPatient() {
 		LOG.info("PatientController | fetchAllPatient() | invoked");
 		List<Patient> patientList = new ArrayList<Patient>();
@@ -101,7 +101,7 @@ public class PatientController {
 	}
 
 	// get record by id
-	@RequestMapping(value = "/patient/{patientId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-patient/{patientId}", method = RequestMethod.GET)
 	public ResponseEntity<Object> fetchPatientById(@PathVariable("patientId") int patientId) throws PatientNotFoundException {
 		LOG.info("PatientController | fetchPatientById() | invoked with PatientId = {}", patientId);
 		Object patientInfo = null;

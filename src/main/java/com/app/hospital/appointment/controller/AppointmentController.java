@@ -27,7 +27,7 @@ public class AppointmentController {
 	@Autowired
 	private AppointmentService appointmentService;
 
-	@RequestMapping(value = "/appointment", method = RequestMethod.POST)
+	@RequestMapping(value = "/save-appointment", method = RequestMethod.POST)
 	public ResponseEntity<Object> saveAppointment(@Valid @RequestBody Appointment appointment) {
 		LOG.info("AppointmentController | saveAppointment() | invoked");
 		Object appointmentInfo = null;
@@ -42,7 +42,7 @@ public class AppointmentController {
 	}
 
 	// edit/update/modify
-	@RequestMapping(value = "/appointment/{appointmentId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update-appointment/{appointmentId}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateAppointment(@Valid @RequestBody Appointment appointment,
 			@PathVariable("appointmentId") int appointmentId) throws AppointmentNotFoundException {
 		LOG.info("AppointmentController | updateAppointment() | invoked with AppointmentId = {}", appointmentId);
@@ -67,7 +67,7 @@ public class AppointmentController {
 	}
 
 	// delete/remove
-	@RequestMapping(value = "/appointment/{appointmentId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete-appointment/{appointmentId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> deleteAppointment(@PathVariable("appointmentId") int appointmentId)
 			throws AppointmentNotFoundException {
 		LOG.info("AppointmentController | deleteAppointment() | invoked with AppointmentId = {}", appointmentId);
@@ -90,7 +90,7 @@ public class AppointmentController {
 	}
 
 	// fetchList
-	@RequestMapping(value = "/appointment", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-all-appointment", method = RequestMethod.GET)
 	public List<Appointment> fetchAllAppointment() {
 		LOG.info("AppointmentController | fetchAllAppointment() | invoked");
 		List<Appointment> appointmentList = new ArrayList<Appointment>();
@@ -105,7 +105,7 @@ public class AppointmentController {
 	}
 
 	// get record by id
-	@RequestMapping(value = "/appointment/{appointmentId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch-appointment/{appointmentId}", method = RequestMethod.GET)
 	public ResponseEntity<Object> fetchAppointmentById(@PathVariable("appointmentId") int appointmentId)
 			throws AppointmentNotFoundException {
 		LOG.info("AppointmentController | fetchAppointmentById() | invoked with AppointmentId = {}", appointmentId);
