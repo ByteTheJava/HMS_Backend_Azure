@@ -1,1 +1,2 @@
-# HospitalManagementSystem-Azure
+# HospitalManagementSystem
+Hospital Management System
